@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://qkcsiwgxujewdk:af5c7e62105555843601c77b5c450b8761357ddbc5cc89f8048201a52ab4074c@ec2-54-243-223-245.compute-1.amazonaws.com:5432/d8ot5pbfnhl1nc'
-#'postgresql://localhost/saving_flowers'
+
 
 db = SQLAlchemy(app)
 
