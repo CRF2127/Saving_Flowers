@@ -11,7 +11,12 @@
       <p> Test Loop</p>
       <hr>
       {% for posts in posts %}
+      <a href= "{{url_for('post', post_id=posts.id)}}">
       <p> {{posts.title}}</p>
+      <p> {{posts.subtitle}}</p>
+      <p> {{posts.author}}</p>
+      <p> {{posts.entry_date.strftime('%B %d, %Y')}}</p>
+  		</a>
       {% endfor %}
     </div>
   </div>

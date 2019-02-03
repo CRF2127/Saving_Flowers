@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-#from models import db
 from forms import postform
 from datetime import datetime
 
@@ -9,7 +8,6 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/saving_flowers'
 db = SQLAlchemy(app)
-#db.init_app(app)
 
 class BlogPost(db.Model):
 	__tablename__ = 'posts'
@@ -34,10 +32,6 @@ def post(post_id):
 	posts=BlogPost.query.filter_by(id=post_id).one()
 
 	return render_template("post.html", posts=posts)
-
-#@app.route('/testForm')
-#def test():
-	#form = postform
 
 if __name__ == "__main__":
 	app.run(debug=True)
