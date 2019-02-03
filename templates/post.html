@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<main class="hero-content">
+  <div class = "container">
+    <div class = "section-content">
+      <h1>{{posts.title}}</h1>
+      <h2>{{posts.subtitle}}</h2>
+      <h2>{{posts.author}}</h2>
+      <h2>{{posts.entry_date.strftime('%B %d, %Y')}}</h2>
+
+      <p>{{posts.content | safe}}</p>
+      <a href="{{url_for('about')}}" class = "btn-secondary">About Me</a>
+      <a href="{{url_for('index')}}" class = "btn-secondary">index?</a>
+      
+    </div>
+  </div>
+</main>
+
+{% endblock %}

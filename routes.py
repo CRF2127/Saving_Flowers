@@ -23,11 +23,17 @@ class BlogPost(db.Model):
 @app.route("/")
 def index():
 	posts=BlogPost.query.all()
-	return render_template("index.html" , post=posts)
+	return render_template("index.html" , posts=posts)
 
 @app.route("/about")
 def about():
 	return render_template("about.html")
+
+@app.route("/post/<int:post_id>")
+def post(post_id):
+	posts=BlogPost.query.filter_by(id=post_id).one()
+
+	return render_template("post.html", posts=posts)
 
 #@app.route('/testForm')
 #def test():
