@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<header class="jumbotron " style="height: 50vh; background-image: url('{{url_for('static', filename='img/home-bg.jpg')}}'); background-size: cover; margin-bottom: 20px;">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Che's Blog</h1>
+          <span class="subheading">A fearlessly aimless searching inventory of all things sustainability and tech</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="hero-content">
+  <div class = "container">
+    <div class = "section-content">
+      <h2>Main Page Header</h2>
+      <p>First paragraph...</p>
+      <a href="{{url_for('about')}}" class = "btn-secondary">About Me</a>
+      <p> Test Loop</p>
+      <hr>
+      {% for posts in posts %}
+      <a href= "{{url_for('post', post_id=posts.id)}}">
+      <p> {{posts.title}}</p>
+      <p> {{posts.subtitle}}</p>
+      <p> {{posts.author}}</p>
+      <p> {{posts.entry_date.strftime('%B %d, %Y')}}</p>
+  		</a>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+
+{% endblock %}
